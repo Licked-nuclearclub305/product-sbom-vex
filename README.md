@@ -1,3 +1,10 @@
+<!-- Badges -->
+[![Connect with us](https://img.shields.io/badge/Connect%20with%20us-000000?logo=x&logoColor=white)](https://x.com/prismor_dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+
+
+
 # CRA-CLI — EU Cyber Resilience Act Compliance Tooling
 
 [![PyPI version](https://img.shields.io/pypi/v/cra-cli.svg?style=flat-square)](https://pypi.org/project/cra-cli/)
