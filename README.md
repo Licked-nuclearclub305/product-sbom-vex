@@ -1,17 +1,11 @@
+
+# CRA-CLI — EU Cyber Resilience Act Compliance Tooling
+
 <!-- Badges -->
 [![Connect with us](https://img.shields.io/badge/Connect%20with%20us-000000?logo=x&logoColor=white)](https://x.com/prismor_dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-
-
-
-# CRA-CLI — EU Cyber Resilience Act Compliance Tooling
-
-[![PyPI version](https://img.shields.io/pypi/v/cra-cli.svg?style=flat-square)](https://pypi.org/project/cra-cli/)
-[![Python versions](https://img.shields.io/pypi/pyversions/cra-cli.svg?style=flat-square)](https://pypi.org/project/cra-cli/)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
-[![Twitter Follow](https://img.shields.io/twitter/follow/prismor_dev?style=social)](https://x.com/prismor_dev)
 
 A Python CLI tool that helps organizations comply with the **EU Cyber Resilience Act (CRA)** by automating the creation of **Product-level SBOMs** and **VEX (Vulnerability Exploitability eXchange)** documents.
 
